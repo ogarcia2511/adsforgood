@@ -1,0 +1,44 @@
+body {
+    background-color: #fffff0;
+    
+    width: 100%;
+    
+  }
+  
+  #intro {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    
+    color: #228b22;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  }
+  
+  #intro.h1 {
+    color: #000;
+  }
+  
+  #select {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  }
+  
+  .charity_img {
+    width: 100%;
+  }
+  .row {
+    display: flex;
+    width: 100%;
+  }
+  
+  .column {
+    flex: 33.33%;
+    padding: 5px;
+  }
+  
+  .charity {
+    padding: 5px;
+  }
