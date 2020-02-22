@@ -1,14 +1,26 @@
 {
   "manifest_version": 2,
- 
   "name": "Modify CSS and HTML to add ads",
   "version": "0.1.0",
   "description": "Ads for good",
- 
-  "content_scripts": [{
-    "css": ["styles.css"],
-    "js": ["content.js"],
-    "matches": ["https://www.google.com/*"]
-  }]
- 
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "https://www.google.com/*"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Ads_for_Good",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    "redcross_logo.jpg"
+  ],
+  "permissions": [
+    "storage"
+  ]
 }
