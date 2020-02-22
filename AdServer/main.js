@@ -2,7 +2,7 @@ const fastify = require('fastify')({ logger: true });
 const fs = require('fs');
 
 const ALL_CHARITIES = [
-    'Redcross', 'WWF', 'unicef', 'unesco'
+    'Redcross', 'WWF', 'unicef', 'unesco', 'code.org', 'natureconservancy'
 ];
 
 let userData = {};
