@@ -5,6 +5,12 @@ const ALL_CHARITIES = [
     'Redcross', 'WWF', 'unicef', 'unesco', 'code.org', 'natureconservancy'
 ];
 
+const AD_URIS = [
+    'AdImages/ad1.png'
+];
+
+let adPage;
+
 let userData = {};
 let globalDonationLog = [];
 
@@ -68,7 +74,7 @@ fastify.get('/ad', async (request, reply) => {
     reply.header('Content-Type', 'text/html');
     reply.type('text/html');
 
-    return fs.readFileSync('ad.html').toString();
+    return adPage.replace("{AD_URI}", '/AdImages/ad1.png');
 });
 
 fastify.get('/charity', async (request, reply) => {
@@ -100,6 +106,8 @@ const start = async () => {
         shutdownHook();
         done();
     });
+
+    adPage = fs.readFileSync('ad.html').toString();
 
     try {
         await fastify.listen(3000);
