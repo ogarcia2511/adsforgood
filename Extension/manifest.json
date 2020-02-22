@@ -1,26 +1,14 @@
 {
-  "name": "Ads_for_Good",
-  "description": "",
-  "version": "2.0",
-  "permissions": [
-    "activeTab",
-    "http://*/*"
-
-  ],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-
-  "content_scripts": [
-    {
-      "matches": ["https://www.google.com/*"],
-      "js": ["insert.js"]
-    }
-  ],
-  "browser_action": {
-    "default_title": "Ads_for_Good",
-    "default_popup": "popup.html"
-  },
-  "manifest_version": 2
+  "manifest_version": 2,
+ 
+  "name": "Modify CSS and HTML to add ads",
+  "version": "0.1.0",
+  "description": "Ads for good",
+ 
+  "content_scripts": [{
+    "css": ["styles.css"],
+    "js": ["content.js"],
+    "matches": ["https://www.google.com/*"]
+  }]
+ 
 }
