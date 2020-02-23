@@ -3,6 +3,12 @@
   "name": "Modify CSS and HTML to add ads",
   "version": "0.1.0",
   "description": "Ads for good",
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
   "content_scripts": [
     {
       "js": [
