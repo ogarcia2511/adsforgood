@@ -1,6 +1,8 @@
 const fastify = require('fastify')({ logger: true });
 const fs = require('fs');
 
+fastify.register(require('fastify-cors'), { origin: '*' });
+
 const ALL_CHARITIES = [
     'Redcross', 'WWF', 'unicef', 'unesco', 'code.org', 'natureconservancy'
 ];
