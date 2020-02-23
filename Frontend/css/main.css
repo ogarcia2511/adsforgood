@@ -2,63 +2,67 @@ html {
     width: 100%;
   }
   
-  body {
+body {
     background-color: #fffff0;
     min-width: fit-content;
-  }
-  #intro {
+}
+#intro {
     margin: auto;
     width: 75%;
     text-align: center;
-    
+
     color: #228b22;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  }
-  
-  #intro.h1 {
+}
+
+#intro.h1 {
     color: #000;
-  }
-  
-  #select {
+}
+
+#select {
     margin: auto;
     width: 75%;
     text-align: center;
-    
+
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  }
-  
-  .charity_img {
+}
+
+.charity_img {
     width: 300px;
     height: 300px;
-  }
-  .row {
+}
+.row {
     display: flex;
     width: 100%;
-  }
-  
-  .column {
+}
+
+.column {
     flex: 33.33%;
     padding: 5px;
-  }
-  
-  .charity {
+}
+
+.charity {
     padding: 5px;
     margin-bottom: 10px;
-  }
-  
-  /* .charity_name {
-    white-space: nowrap;
-    overflow: hidden;
-  } */
+}
 
-  .charity_selection {
+/* .charity_name {
+white-space: nowrap;
+overflow: hidden;
+} */
+
+/* .charity_selection {
     border-radius: 4px;
     background-color: transparent;
     border-color: #000;
-  }
-  
-  .charity_selection:hover {
+}
+
+.charity_selection:hover {
     color: #fff;
     background-color: #000;
     border-color: transparent;
-  }
+} */
+
+button.selected {
+    color:red;
+}
