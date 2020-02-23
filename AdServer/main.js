@@ -5,10 +5,6 @@ const ALL_CHARITIES = [
     'Redcross', 'WWF', 'unicef', 'unesco', 'code.org', 'natureconservancy'
 ];
 
-const AD_URIS = [
-    'AdImages/ad1.png'
-];
-
 let adPage;
 
 let userData = {};
@@ -22,7 +18,7 @@ function shutdownHook() {
 }
 
 function generateCPM() {
-    return Math.random();
+    return Math.random().toFixed(2);
 }
 
 function findOrCreateUser(username) {
