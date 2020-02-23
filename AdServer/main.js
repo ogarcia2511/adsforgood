@@ -20,7 +20,8 @@ function shutdownHook() {
 }
 
 function generateCPM() {
-    return parseFloat(Math.random().toFixed(2));
+    const cpm = (Math.random() * 3.0 + 2.0).toFixed(2);
+    return (parseFloat(cpm)/1000.0);
 }
 
 function findOrCreateUser(username) {
