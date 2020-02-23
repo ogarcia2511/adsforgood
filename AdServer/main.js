@@ -20,7 +20,7 @@ function shutdownHook() {
 }
 
 function generateCPM() {
-    return Math.random().toFixed(2);
+    return parseFloat(Math.random().toFixed(2));
 }
 
 function findOrCreateUser(username) {
@@ -65,6 +65,23 @@ fastify.get('/stat', async (request, reply) => {
     const user = findOrCreateUser(request.query.user);
 
     return { user: user };
+});
+
+fastify.get('/raised', async (request, reply) => {
+    if (request.query.user === undefined) {
+        return { error: 'No user to query' };
+    }
+
+    let money = 0;
+    const user = findOrCreateUser(request.query.user);
+
+    ALL_CHARITIES.forEach((c) => {
+        if(user.donations[c] !== undefined) {
+            money += user.donations[c];
+        }
+    });
+
+    return { usd: money };
 });
 
 fastify.get('/ad', async (request, reply) => {
