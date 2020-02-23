@@ -5,10 +5,6 @@ const ALL_CHARITIES = [
     'Redcross', 'WWF', 'unicef', 'unesco', 'code.org', 'natureconservancy'
 ];
 
-const AD_URIS = [
-    'AdImages/ad1.png'
-];
-
 let adPage;
 
 let userData = {};
@@ -22,7 +18,7 @@ function shutdownHook() {
 }
 
 function generateCPM() {
-    return 0.3;
+    return Math.random().toFixed(2);
 }
 
 function findOrCreateUser(username) {
@@ -42,6 +38,17 @@ function addFunds(user, value) {
     } else {
         user.donations[user.charity] += value;
     }
+}
+
+function base64_encode(file){
+    const bitmap = fs.readFileSync(file);
+
+    return new Buffer(bitmap).toString('base64');
+}
+
+function randomImagePath(){
+    const imageID = Math.floor(Math.random() * 5);
+    return "AdImages/ad" + imageID + ".png";
 }
 
 fastify.get('/donations', async (request, reply) => {
@@ -74,7 +81,10 @@ fastify.get('/ad', async (request, reply) => {
     reply.header('Content-Type', 'text/html');
     reply.type('text/html');
 
-    return adPage.replace("{AD_URI}", '/AdImages/ad1.png');
+    const imagePath = randomImagePath();
+    const imageBase64 = base64_encode(imagePath);
+
+    return adPage.replace("{AD_URI}", "data:image/png;base64, " + imageBase64);
 });
 
 fastify.get('/charity', async (request, reply) => {
