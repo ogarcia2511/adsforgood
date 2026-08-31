@@ -1,7 +1,7 @@
 const fastify = require('fastify')({ logger: true });
 const fs = require('fs');
 
-fastify.register(require('fastify-cors'), { origin: '*' });
+fastify.register(require('@fastify/cors'), { origin: '*' });
 
 const ALL_CHARITIES = [
     'Redcross', 'WWF', 'unicef', 'unesco', 'code.org', 'natureconservancy'
@@ -46,7 +46,7 @@ function addFunds(user, value) {
 function base64_encode(file){
     const bitmap = fs.readFileSync(file);
 
-    return new Buffer(bitmap).toString('base64');
+    return Buffer.from(bitmap).toString('base64');
 }
 
 function randomImagePath(){
@@ -140,7 +140,7 @@ const start = async () => {
     adPage = fs.readFileSync('ad.html').toString();
 
     try {
-        await fastify.listen(3000);
+        await fastify.listen({ port: 3000 });
         fastify.log.info(`server listening on ${fastify.server.address().port}`);
     } catch (err) {
         fastify.log.error(err);
